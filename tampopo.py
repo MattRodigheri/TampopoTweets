@@ -12,6 +12,8 @@ from auth import (
     access_token,
     access_token_secret
 )
+from stepper import feed_rat
+# import stepper
 
 twitter = Twython(
     consumer_key,
@@ -49,8 +51,6 @@ messages = [
 ]
 
 def main():
-    message = random.choice(messages)
-
     with PiCamera() as camera:
          while True:
              GPIO.wait_for_edge(14, GPIO.FALLING)
@@ -60,7 +60,9 @@ def main():
              camera.capture(photo_path)
 
              with open(photo_path, 'rb') as photo:
+                 message = random.choice(messages)
                  twitter.update_status_with_media(status=message, media=photo)
+                 feed_rat()
 
 
 if __name__ == '__main__':

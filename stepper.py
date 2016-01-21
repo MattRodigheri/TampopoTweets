@@ -46,9 +46,18 @@ def setStep(w1, w2, w3, w4):
   GPIO.output(coil_B_1_pin, w3)
   GPIO.output(coil_B_2_pin, w4)
 
-while True:
-  delay = raw_input("Delay between steps (milliseconds)?")
-  steps = raw_input("How many steps forward? ")
-  forward(int(delay) / 1000.0, int(steps))
-  steps = raw_input("How many steps backwards? ")
-  backwards(int(delay) / 1000.0, int(steps))
+def feed_rat():
+    print ('feeding rat!')
+    delay = 5
+    steps_forward = 128
+    forwards(delay, steps)
+
+
+# while True:
+#   delay = raw_input("Delay between steps (milliseconds)?")
+#   # delay = 200
+#   steps = raw_input("How many steps forward? ")
+#   # steps = 4
+#   forward(int(delay) / 1000.0, int(steps))
+#   steps = raw_input("How many steps backwards? ")
+#   backwards(int(delay) / 1000.0, int(steps))
