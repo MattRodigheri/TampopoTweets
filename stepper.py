@@ -46,11 +46,11 @@ def setStep(w1, w2, w3, w4):
   GPIO.output(coil_B_1_pin, w3)
   GPIO.output(coil_B_2_pin, w4)
 
-def feed_rat():
-    print ('feeding rat!')
+def feed():
+    print ('feeding!')
     delay = 5
-    steps_forward = 128
-    forwards(delay, steps)
+    steps = 128
+    forward(delay, steps)
 
 
 # while True:

@@ -12,7 +12,7 @@ from auth import (
     access_token,
     access_token_secret
 )
-from stepper import feed_rat
+from stepper import feed
 # import stepper
 
 twitter = Twython(
@@ -62,8 +62,7 @@ def main():
              with open(photo_path, 'rb') as photo:
                  message = random.choice(messages)
                  twitter.update_status_with_media(status=message, media=photo)
-                 feed_rat()
-
+                 feed()
 
 if __name__ == '__main__':
     main()
